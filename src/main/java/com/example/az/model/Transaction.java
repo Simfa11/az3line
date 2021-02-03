@@ -1,16 +1,11 @@
 package com.example.az.model;
 
-import com.example.az.audit.DateAudit;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import javax.persistence.*;
-
-@Entity(name = "ab_transactions")
-public class ABTransaction extends DateAudit {
-
-    @Column(name = "id")
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Transaction {
 
     @ManyToOne(
             fetch = FetchType.LAZY,
@@ -24,29 +19,10 @@ public class ABTransaction extends DateAudit {
     private Long amount;
 
     @Column(name = "outlet")
-    private String outlet;
+    private String outlet = "ab";
 
     @Column(name = "tran_type")
     private String tranType;
-
-    @Column(name = "tran_id")
-    private String tranId;
-
-    public String getTranId() {
-        return tranId;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTranId(String tranId) {
-        this.tranId = tranId;
-    }
 
     public User getUser() {
         return user;

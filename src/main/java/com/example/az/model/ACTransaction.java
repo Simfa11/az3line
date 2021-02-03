@@ -1,11 +1,10 @@
 package com.example.az.model;
 
-import com.example.az.audit.DateAudit;
-
 import javax.persistence.*;
 
-@Entity(name = "ab_transactions")
-public class ABTransaction extends DateAudit {
+@Entity
+@Table(name = "ac_transactions")
+public class ACTransaction {
 
     @Column(name = "id")
     @Id
@@ -36,14 +35,6 @@ public class ABTransaction extends DateAudit {
         return tranId;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public void setTranId(String tranId) {
         this.tranId = tranId;
     }
@@ -68,6 +59,14 @@ public class ABTransaction extends DateAudit {
         return outlet;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setOutlet(String outlet) {
         this.outlet = outlet;
     }
@@ -79,4 +78,5 @@ public class ABTransaction extends DateAudit {
     public void setTranType(String tranType) {
         this.tranType = tranType;
     }
+
 }
