@@ -1,10 +1,12 @@
 package com.example.az.model;
 
+import com.example.az.audit.DateAudit;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "ac_transactions")
-public class ACTransaction {
+public class ACTransaction extends DateAudit {
 
     @Column(name = "id")
     @Id
@@ -30,6 +32,17 @@ public class ACTransaction {
 
     @Column(name = "tran_id")
     private String tranId;
+
+    @Column(name = "description")
+    private String description = "";
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public String getTranId() {
         return tranId;

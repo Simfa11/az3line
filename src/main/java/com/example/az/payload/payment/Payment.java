@@ -1,4 +1,4 @@
-package com.example.az.model.payment;
+package com.example.az.payload.payment;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -8,9 +8,6 @@ public class Payment {
     private String currency;
     private String redirectURL;
     private String paymentOptions;
-    private Meta meta;
-    private Customer customer;
-    private Customizations customizations;
 
     @JsonProperty("tx_ref")
     public String getTxRef() { return txRef; }
@@ -36,20 +33,5 @@ public class Payment {
     public String getPaymentOptions() { return paymentOptions; }
     @JsonProperty("payment_options")
     public void setPaymentOptions(String value) { this.paymentOptions = value; }
-
-    @JsonProperty("meta")
-    public Meta getMeta() { return meta; }
-    @JsonProperty("meta")
-    public void setMeta(Meta value) { this.meta = value; }
-
-    @JsonProperty("customer")
-    public Customer getCustomer() { return customer; }
-    @JsonProperty("customer")
-    public void setCustomer(Customer value) { this.customer = value; }
-
-    @JsonProperty("customizations")
-    public Customizations getCustomizations() { return customizations; }
-    @JsonProperty("customizations")
-    public void setCustomizations(Customizations value) { this.customizations = value; }
 }
 

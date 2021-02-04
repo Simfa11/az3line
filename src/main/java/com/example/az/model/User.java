@@ -21,14 +21,28 @@ public class User {
     private String lastName;
 
     @Column(name = "balance")
-    private String balance;
+    private Long balance = 0L;
 
-    public User(Long id, String firstName, String middleName, String lastName, String balance) {
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "phone_number")
+    private String phonenumber;
+
+    public User(Long id, String firstName, String middleName, String lastName, long balance) {
         this.id = id;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.balance = balance;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Long getId() {
@@ -63,11 +77,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getBalance() {
+    public Long getBalance() {
         return balance;
     }
 
-    public void setBalance(String balance) {
+    public void setBalance(Long balance) {
         this.balance = balance;
     }
 }
